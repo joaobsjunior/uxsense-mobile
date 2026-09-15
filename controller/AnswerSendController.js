@@ -132,15 +132,22 @@ UXSense.controller('AnswerSendController', function ($scope, $state, $stateParam
             } else {
               _column = _line - ((8 - line) - 4);
             }
+            if (column < 4 || _column < -1) {
+              _line = 0;
+              _column = 0;
+            }
             var value = parseFloat(((_line + _column) / 2).toFixed(1));
             value = value < 0 ? 0 : value;
             return value;
           })(line, column),
           excitacao: (function (line, column) {
-            var _line = answer.max - line;
-            var _column = column - answer.max;
+            var _line = line > 4 ? 0 : answer.max - line;
+            var _column = column < 4 ? 0 : column - answer.max;
+            if (line > 4 || column < 4) {
+              _line = 0;
+              _column = 0;
+            }
             var value = parseFloat(((_line + _column) / 2).toFixed(1));
-            value = value < 0 ? 0 : value;
             return value;
           })(line, column),
           alta_excitacao: (function (line, column) {
@@ -153,17 +160,22 @@ UXSense.controller('AnswerSendController', function ($scope, $state, $stateParam
             } else {
               _column = _line - ((8 - column) - 4);
             }
+            if (line > 4 || _column < -1) {
+              _line = 0;
+              _column = 0;
+            }
             var value = parseFloat(((_line + _column) / 2).toFixed(1));
             value = value < 0 ? 0 : value;
             return value;
           })(line, column),
           estresse: (function (line, column) {
-            var _line = answer.max - line;
-            var _column = answer.max - column;
-            var value = parseFloat(((_line + _column) / 2).toFixed(1));
-            if (value < 0) {
-              value = 0;
+            var _line = line > 4 ? 0 : answer.max - line;
+            var _column = column > 4 ? 0 : answer.max - column;
+            if (line > 4 || column > 4) {
+              _line = 0;
+              _column = 0;
             }
+            var value = parseFloat(((_line + _column) / 2).toFixed(1));
             return value;
           })(line, column),
           desagradavel: (function (line, column) {
@@ -176,15 +188,22 @@ UXSense.controller('AnswerSendController', function ($scope, $state, $stateParam
             } else {
               _column = _line - ((8 - line) - 4);
             }
+            if (column > 4 || _column < -1) {
+              _line = 0;
+              _column = 0;
+            }
             var value = parseFloat(((_line + _column) / 2).toFixed(1));
             value = value < 0 ? 0 : value;
             return value;
           })(line, column),
           depressao: (function (line, column) {
-            var _line = line - answer.max;
-            var _column = answer.max - column;
+            var _line = line < 4 ? 0 : line - answer.max;
+            var _column = column > 4 ? 0 : answer.max - column;
+            if (line < 4 || column > 4) {
+              _line = 0;
+              _column = 0;
+            }
             var value = parseFloat(((_line + _column) / 2).toFixed(1));
-            value = value < 0 ? 0 : value;
             return value;
           })(line, column),
           sonolencia: (function (line, column) {
@@ -197,15 +216,22 @@ UXSense.controller('AnswerSendController', function ($scope, $state, $stateParam
             } else {
               _column = _line - ((8 - column) - 4);
             }
+            if (line < 4 || _column < -1) {
+              _line = 0;
+              _column = 0;
+            }
             var value = parseFloat(((_line + _column) / 2).toFixed(1));
             value = value < 0 ? 0 : value;
             return value;
           })(line, column),
           relaxamento: (function (line, column) {
-            var _line = line - answer.max;
-            var _column = column - answer.max;
+            var _line = line < 4 ? 0 : line - answer.max;
+            var _column = column < 4 ? 0 : column - answer.max;
+            if (line < 4 || column < 4) {
+              _line = 0;
+              _column = 0;
+            }
             var value = parseFloat(((_line + _column) / 2).toFixed(1));
-            value = value < 0 ? 0 : value;
             return value;
           })(line, column)
         }
