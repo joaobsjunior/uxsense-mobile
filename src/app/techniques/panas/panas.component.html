@@ -1,14 +1,11 @@
 <div class="technique panas" [class.submitted]="submitted()">
-  <div class="helper-tech">
-    toque em uma opção entre 1 e 5 para cada sentimento, sendo 1 para "Nada ou muito ligeiramente" e
-    5 para "Extremamente"
-  </div>
+  <div class="helper-tech">{{ 'helpPanas' | translate }}</div>
   <div class="data">
     <table>
       <tbody>
-        @for (feeling of feelings; track feeling) {
+        @for (feeling of feelings; track feeling.key) {
           <tr [class.no-validate]="isMissing(feeling)">
-            <td>{{ feeling }}</td>
+            <td>{{ feeling.label }}</td>
             @for (score of scores; track score) {
               <td
                 role="button"

@@ -33,6 +33,9 @@ export const PT: Record<string, string> = {
   labelSignUp: 'Cadastre-se',
   labelRegiter: 'Cadastrar',
   labelMan: 'Homem',
+  labelIntersex: 'Intersexual',
+  labelSexPreferNot: 'Prefiro não informar',
+  labelSexNotInformed: 'Não Informado',
   labelDelete: 'Excluir',
   labelWoman: 'Mulher',
   labelTransport: 'Veículo Particular',
@@ -79,6 +82,22 @@ export const PT: Record<string, string> = {
   'server-error500':
     'Ocorreu um erro inesperado no servidor. Entre em contato com o desenvolvedor ou tente novamente mais tarde.',
   'server-timeout': 'O servidor não está respondendo no momento. Tente novamente mais tarde.',
+
+  /* TEXTOS DE TELA */
+  msgHomeIntro:
+    'O aplicativo UXSense foi desenvolvido para capturar a experiência de usuário (UX) através de perguntas enviadas perioticamente',
+  titleTermsFull: 'Termos de Uso e Política de Privacidade',
+
+  /* DICAS DAS TÉCNICAS */
+  helpEmocards: 'toque no rosto do personagem que representa melhor sua emoção',
+  helpAffectGrid: 'toque em um quadrado que melhor representa o seu sentimento',
+  helpPanas:
+    'toque em uma opção entre 1 e 5 para cada sentimento, sendo 1 para "Nada ou muito ligeiramente" e 5 para "Extremamente"',
+  helpAttrakdiff: 'Arraste o marcador para a emoção que mais se identifica',
+  helpPremo: 'Escolha uma ou mais emoções que representam o seu sentimento',
+  helpEsm: 'Escolha o emoji que melhor representa sua satisfação',
+  helpSam:
+    'Arraste para o nível que mais se identifica com você, sendo 1 o de menor grau e 9 o de maior. As posições de número par equivalem ao meio termo entre duas emoções.',
 
   /* MESSAGES */
   msgEnterPassword: 'Senha de 6 até 16 caracteres',

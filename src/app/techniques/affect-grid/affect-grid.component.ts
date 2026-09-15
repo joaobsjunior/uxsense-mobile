@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, output, signal } from '@angular/core';
 
 import { SerializedAnswer, serialize } from '../technique.types';
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
 const MAX = 4;
 const COLUMNS = 9;
@@ -12,6 +13,7 @@ const COLUMNS = 9;
  */
 @Component({
   selector: 'app-affect-grid',
+  imports: [TranslatePipe],
   templateUrl: './affect-grid.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

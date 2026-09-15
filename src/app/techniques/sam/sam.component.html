@@ -1,8 +1,5 @@
 <div class="technique sam" [class.submitted]="submitted()">
-  <div class="helper-tech">
-    Arraste para o nível que mais se identifica com você, sendo 1 o de menor grau e 9 o de maior. As
-    posições de número par equivalem ao meio termo entre duas emoções.
-  </div>
+  <div class="helper-tech">{{ 'helpSam' | translate }}</div>
   <div class="data">
     <ion-list>
       @for (dimension of dimensions; track dimension.key) {

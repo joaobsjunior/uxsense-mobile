@@ -63,3 +63,28 @@ A resposta é enviada à API no campo `answer`, como uma string JSON no formato
 
 O app consome `http://api.uxsense.com.br/api/app/`. A sessão é mantida pelos
 cabeçalhos `GSX-DEVICE` e `GSX-TOKEN`, guardados em `localStorage`.
+
+## Processo de desenvolvimento
+
+O projeto usa [Spec Kit](https://github.com/github/spec-kit): mudanças relevantes são
+especificadas e planejadas antes de serem escritas.
+
+- `.specify/memory/constitution.md` — princípios que regem o projeto (contrato da API
+  imutável, recursos nativos opcionais, stack sem vulnerabilidades, verificação em três
+  camadas antes de entregar)
+- `specs/001-migracao-angular/` — especificação, plano, pesquisa, modelo de dados,
+  contratos e tarefas da migração para Angular
+
+O ciclo, pelas skills instaladas em `.claude/skills/`:
+
+```text
+/speckit-constitution  →  princípios do projeto
+/speckit-specify       →  o que muda e por quê
+/speckit-plan          →  decisões técnicas e alternativas
+/speckit-tasks         →  tarefas executáveis
+/speckit-implement     →  execução
+/speckit-converge      →  reconciliação quando o código já existe
+```
+
+Antes de mexer no cálculo de uma técnica ou em qualquer chamada à API, leia
+`specs/001-migracao-angular/contracts/`: o que está lá é contrato com o servidor.

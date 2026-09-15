@@ -1,29 +1,44 @@
 import { ChangeDetectionStrategy, Component, input, output, signal } from '@angular/core';
 
 import { SerializedAnswer, serialize } from '../technique.types';
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
-/** Os 20 sentimentos avaliados na escala PANAS, na ordem do app original. */
-const FEELINGS = [
-  'Ativo',
-  'Interessado',
-  'Empolgado',
-  'Forte',
-  'Entusiasmado',
-  'Orgulhoso',
-  'Inspirado',
-  'Determinado',
-  'Atento',
-  'Alerta',
-  'Aflito',
-  'Chateado',
-  'Culpado',
-  'Apavorado',
-  'Hostil',
-  'Irritável',
-  'Commedo',
-  'Envergonhado',
-  'Nervoso',
-  'Inquieto',
+interface Feeling {
+  /** Chave enviada à API. Faz parte do contrato: não pode mudar. */
+  key: string;
+  /** Texto exibido ao aluno. */
+  label: string;
+}
+
+/**
+ * Os 20 sentimentos da escala PANAS, na ordem do app original.
+ *
+ * A chave é declarada junto do rótulo, e não derivada dele: assim o que o
+ * servidor recebe não depende da redação da interface. As chaves reproduzem
+ * exatamente as que o app AngularJS enviava, inclusive o acento de "irritável"
+ * e a grafia herdada "commedo".
+ */
+const FEELINGS: Feeling[] = [
+  { key: 'ativo', label: 'Ativo' },
+  { key: 'interessado', label: 'Interessado' },
+  { key: 'empolgado', label: 'Empolgado' },
+  { key: 'forte', label: 'Forte' },
+  { key: 'entusiasmado', label: 'Entusiasmado' },
+  { key: 'orgulhoso', label: 'Orgulhoso' },
+  { key: 'inspirado', label: 'Inspirado' },
+  { key: 'determinado', label: 'Determinado' },
+  { key: 'atento', label: 'Atento' },
+  { key: 'alerta', label: 'Alerta' },
+  { key: 'aflito', label: 'Aflito' },
+  { key: 'chateado', label: 'Chateado' },
+  { key: 'culpado', label: 'Culpado' },
+  { key: 'apavorado', label: 'Apavorado' },
+  { key: 'hostil', label: 'Hostil' },
+  { key: 'irritável', label: 'Irritável' },
+  { key: 'commedo', label: 'Commedo' },
+  { key: 'envergonhado', label: 'Envergonhado' },
+  { key: 'nervoso', label: 'Nervoso' },
+  { key: 'inquieto', label: 'Inquieto' },
 ];
 
 const SCORES = [1, 2, 3, 4, 5];
@@ -34,7 +49,7 @@ const SCORES = [1, 2, 3, 4, 5];
  */
 @Component({
   selector: 'app-panas',
-  imports: [],
+  imports: [TranslatePipe],
   templateUrl: './panas.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -48,25 +63,20 @@ export class PanasComponent {
 
   private readonly values = signal<Record<string, number>>({});
 
-  key(feeling: string): string {
-    return feeling.toLowerCase();
+  isSelected(feeling: Feeling, score: number): boolean {
+    return this.values()[feeling.key] === score;
   }
 
-  isSelected(feeling: string, score: number): boolean {
-    return this.values()[this.key(feeling)] === score;
+  isMissing(feeling: Feeling): boolean {
+    return this.values()[feeling.key] === undefined;
   }
 
-  isMissing(feeling: string): boolean {
-    return this.values()[this.key(feeling)] === undefined;
-  }
-
-  select(feeling: string, score: number): void {
-    const key = this.key(feeling);
+  select(feeling: Feeling, score: number): void {
     const current = { ...this.values() };
-    if (current[key] === score) {
-      delete current[key];
+    if (current[feeling.key] === score) {
+      delete current[feeling.key];
     } else {
-      current[key] = score;
+      current[feeling.key] = score;
     }
     this.values.set(current);
 

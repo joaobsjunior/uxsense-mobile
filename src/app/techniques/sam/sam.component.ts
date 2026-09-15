@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, input, output, signal } from '@angu
 import { IonItem, IonItemDivider, IonLabel, IonList, IonRange, RangeCustomEvent } from '@ionic/angular';
 
 import { SerializedAnswer, serialize } from '../technique.types';
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
 interface Dimension {
   key: string;
@@ -22,7 +23,7 @@ const DIMENSIONS: Dimension[] = [
  */
 @Component({
   selector: 'app-sam',
-  imports: [IonItem, IonItemDivider, IonLabel, IonList, IonRange],
+  imports: [IonItem, IonItemDivider, IonLabel, IonList, IonRange, TranslatePipe],
   templateUrl: './sam.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

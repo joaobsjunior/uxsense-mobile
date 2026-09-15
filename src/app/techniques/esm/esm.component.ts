@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, output, signal } from '@angular/core';
 
 import { SerializedAnswer, serialize } from '../technique.types';
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
 interface Option {
   key: string;
@@ -20,7 +21,7 @@ const OPTIONS: Option[] = [
 /** Técnica 6 — ESM: escolha única entre cinco emojis de satisfação. */
 @Component({
   selector: 'app-esm',
-  imports: [],
+  imports: [TranslatePipe],
   templateUrl: './esm.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

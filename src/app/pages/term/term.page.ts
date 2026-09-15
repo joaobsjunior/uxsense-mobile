@@ -24,7 +24,7 @@ import { SessionService } from '../../core/session.service';
 
     <ion-content class="ion-padding">
       <div class="term">
-        <h2>Termos de Uso e Política de Privacidade</h2>
+        <h2>{{ 'titleTermsFull' | translate }}</h2>
       </div>
       <div class="spacer"></div>
       <ion-button expand="block" (click)="accept()">

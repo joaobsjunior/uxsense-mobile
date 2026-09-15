@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, output, signal } from '@angular/core';
 
 import { SerializedAnswer, serialize } from '../technique.types';
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
 /** Emoção correspondente a cada par de personagens do cartão (T1..T8). */
 const EMOTIONS = [
@@ -21,6 +22,7 @@ const EMOTIONS = [
  */
 @Component({
   selector: 'app-emocards',
+  imports: [TranslatePipe],
   templateUrl: './emocards.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

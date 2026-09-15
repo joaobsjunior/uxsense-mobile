@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, output, signal } from '@angular/cor
 import { CheckboxCustomEvent, IonCheckbox, IonItem, IonList } from '@ionic/angular';
 
 import { SerializedAnswer, serialize } from '../technique.types';
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
 interface Emotion {
   key: string;
@@ -33,7 +34,7 @@ const EMOTIONS: Emotion[] = [
  */
 @Component({
   selector: 'app-premo',
-  imports: [IonCheckbox, IonItem, IonList],
+  imports: [IonCheckbox, IonItem, IonList, TranslatePipe],
   templateUrl: './premo.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

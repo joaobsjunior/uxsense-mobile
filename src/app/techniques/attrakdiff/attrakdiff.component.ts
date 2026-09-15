@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, input, output, signal } from '@angu
 import { IonItem, IonItemDivider, IonLabel, IonList, IonRange, RangeCustomEvent } from '@ionic/angular';
 
 import { SerializedAnswer, serialize } from '../technique.types';
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
 interface Pair {
   key: string;
@@ -50,7 +51,7 @@ const TOTAL_PAIRS = DIMENSIONS.reduce((total, dimension) => total + dimension.pa
  */
 @Component({
   selector: 'app-attrakdiff',
-  imports: [IonItem, IonItemDivider, IonLabel, IonList, IonRange],
+  imports: [IonItem, IonItemDivider, IonLabel, IonList, IonRange, TranslatePipe],
   templateUrl: './attrakdiff.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

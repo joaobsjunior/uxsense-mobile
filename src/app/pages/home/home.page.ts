@@ -18,10 +18,7 @@ import { SessionService } from '../../core/session.service';
     <ion-content class="ion-padding home-content">
       <h1>{{ 'labelHello' | translate }} {{ firstName() }}!</h1>
       <div class="content">
-        <p>
-          O aplicativo UXSense foi desenvolvido para capturar a experiência de usuário (UX) através
-          de perguntas enviadas perioticamente
-        </p>
+        <p>{{ 'msgHomeIntro' | translate }}</p>
       </div>
     </ion-content>
   `,
