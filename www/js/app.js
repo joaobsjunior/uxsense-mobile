@@ -105,18 +105,21 @@ UXSense.run(function ($ionicPlatform, $rootScope, $http, $location, $timeout, $i
   };
   $ionicPlatform.ready(function () {
     $rootScope.checkAuth("test");
-    if (window.Keyboard.hideFormAccessoryBar) {
-      Keyboard.hideFormAccessoryBar(false)
+    if (window.Keyboard && window.Keyboard.hideFormAccessoryBar) {
+      window.Keyboard.hideFormAccessoryBar(false);
     }
     if (window.StatusBar) {
       StatusBar.styleLightContent();
     }
   });
 });
-UXSense.config(function ($stateProvider, $urlRouterProvider, $rootScopeProvider, $translateProvider, $httpProvider, $ionicConfigProvider) {
+UXSense.config(function ($stateProvider, $urlRouterProvider, $locationProvider, $rootScopeProvider, $translateProvider, $httpProvider, $ionicConfigProvider) {
+  /*ROUTING - keep "#/" urls (AngularJS >= 1.6 defaults to "#!/")*/
+  $locationProvider.hashPrefix('');
   /*HTTP INTERCEPTION*/
   $httpProvider.interceptors.push('httpInterceptionService');
   /*TRANSLATE*/
+  $translateProvider.useSanitizeValueStrategy('escapeParameters');
   $translateProvider.translations('pt', Locale.pt);
   $translateProvider.preferredLanguage('pt');
   /*ROUTES*/

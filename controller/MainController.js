@@ -196,7 +196,11 @@ UXSense.controller('MainController', function ($scope, $state, $rootScope, $tran
     }
   };
   $rootScope.alphaNumeric = function ($element, $key) {
-    $element[$key] = $element[$key].replace(/[^0-9a-z\.\_]/gi, '');
+    if (typeof $element[$key] === 'string') {
+      $element[$key] = $element[$key].replace(/[^0-9a-z\.\_]/gi, '');
+    }
   }
-  navigator.splashscreen.hide();
+  if (navigator.splashscreen) {
+    navigator.splashscreen.hide();
+  }
 });
