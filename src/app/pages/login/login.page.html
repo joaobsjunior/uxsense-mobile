@@ -1,0 +1,39 @@
+<ion-content class="ion-padding login-content">
+  <form [formGroup]="form" (ngSubmit)="submit()" class="padding-vertical">
+    <ion-list inset="true">
+      <ion-item>
+        <ion-input
+          label="{{ 'labelRegister' | translate }}"
+          labelPlacement="stacked"
+          formControlName="register"
+          type="text"
+          maxlength="80"
+          autocomplete="username"
+          placeholder="{{ 'labelUsername' | translate }}"
+          (ionInput)="onRegisterInput()"
+        ></ion-input>
+      </ion-item>
+      <ion-item [class.ion-invalid]="passwordTooShort">
+        <ion-input
+          label="{{ 'labelPassword' | translate }}"
+          labelPlacement="stacked"
+          formControlName="password"
+          type="password"
+          maxlength="16"
+          autocomplete="current-password"
+          placeholder="{{ 'msgEnterPassword' | translate }}"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <div class="spacer"></div>
+    <ion-button expand="block" type="submit">{{ 'buttonEnter' | translate }}</ion-button>
+    <ion-button expand="block" fill="clear" color="dark" type="button" (click)="goToSignUp()">
+      {{ 'labelSignUp' | translate }}
+    </ion-button>
+    <ion-button expand="block" fill="clear" color="dark" type="button" (click)="goToLostPassword()">
+      {{ 'labelLostPassword' | translate }}
+    </ion-button>
+    <div class="spacer"></div>
+  </form>
+</ion-content>

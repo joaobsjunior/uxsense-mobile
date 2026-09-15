@@ -1,0 +1,22 @@
+<div class="technique premo">
+  <div class="helper-tech">Escolha uma ou mais emoções que representam o seu sentimento</div>
+  <div class="data">
+    <ion-list>
+      @for (emotion of emotions; track emotion.key) {
+        <ion-item>
+          <ion-checkbox
+            labelPlacement="end"
+            justify="start"
+            [checked]="isChecked(emotion.key)"
+            (ionChange)="onChange(emotion.key, $any($event))"
+          >
+            <div class="premo-item">
+              <img [src]="'assets/img/premo/' + emotion.image + '.svg'" [alt]="emotion.label" />
+              <h2>{{ emotion.label }}</h2>
+            </div>
+          </ion-checkbox>
+        </ion-item>
+      }
+    </ion-list>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="technique panas" [class.submitted]="submitted()">
+  <div class="helper-tech">
+    toque em uma opção entre 1 e 5 para cada sentimento, sendo 1 para "Nada ou muito ligeiramente" e
+    5 para "Extremamente"
+  </div>
+  <div class="data">
+    <table>
+      <tbody>
+        @for (feeling of feelings; track feeling) {
+          <tr [class.no-validate]="isMissing(feeling)">
+            <td>{{ feeling }}</td>
+            @for (score of scores; track score) {
+              <td
+                role="button"
+                [attr.aria-pressed]="isSelected(feeling, score)"
+                [class.selected]="isSelected(feeling, score)"
+                (click)="select(feeling, score)"
+              >
+                {{ score }}
+              </td>
+            }
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

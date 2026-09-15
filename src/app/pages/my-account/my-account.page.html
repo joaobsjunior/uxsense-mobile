@@ -1,0 +1,111 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ 'titleMyAccount' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <ion-list inset="true">
+      <ion-item>
+        <ion-input labelPlacement="stacked" formControlName="name" type="text" maxlength="80">
+          <div slot="label">{{ 'labelName' | translate }} <span class="required">*</span></div>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          labelPlacement="stacked"
+          formControlName="email"
+          type="email"
+          maxlength="45"
+          autocomplete="email"
+        >
+          <div slot="label">{{ 'labelEmail' | translate }} <span class="required">*</span></div>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-select
+          label="{{ 'labelSex' | translate }}"
+          labelPlacement="stacked"
+          formControlName="sex"
+          interface="action-sheet"
+          cancelText="{{ 'labelCancel' | translate }}"
+        >
+          <ion-select-option value="NIL">Não Informado</ion-select-option>
+          <ion-select-option value="HC">Homem</ion-select-option>
+          <ion-select-option value="MC">Mulher</ion-select-option>
+          <ion-select-option value="IN">Intersexual</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          label="{{ 'labelRegister' | translate }}"
+          labelPlacement="stacked"
+          formControlName="register"
+          type="text"
+          maxlength="15"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          label="{{ 'labelDateBirth' | translate }}"
+          labelPlacement="stacked"
+          formControlName="datebirth"
+          type="date"
+          [max]="maxBirthDate"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list inset="true">
+      <ion-item>
+        <ion-input
+          label="{{ 'labelCurrentPassword' | translate }}"
+          labelPlacement="stacked"
+          formControlName="password"
+          type="password"
+          maxlength="16"
+          autocomplete="current-password"
+          placeholder="{{ 'msgEnterPassword' | translate }}"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          label="{{ 'labelNewPassword' | translate }}"
+          labelPlacement="stacked"
+          formControlName="newpassword"
+          type="password"
+          maxlength="16"
+          autocomplete="new-password"
+          placeholder="{{ 'msgEnterPassword' | translate }}"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          label="{{ 'labelPasswordConfirm' | translate }}"
+          labelPlacement="stacked"
+          formControlName="newpassword_"
+          type="password"
+          maxlength="16"
+          autocomplete="new-password"
+          placeholder="{{ 'msgEnterPassword' | translate }}"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <div class="spacer"></div>
+    <ion-button expand="block" type="submit">{{ 'labelUpdate' | translate }}</ion-button>
+  </form>
+
+  <div class="spacer"></div>
+  <ion-button expand="block" color="dark" (click)="logout()">
+    {{ 'labelLogout' | translate }}
+  </ion-button>
+  <div class="spacer"></div>
+</ion-content>

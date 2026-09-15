@@ -1,0 +1,29 @@
+<div class="technique attrakdiff" [class.submitted]="submitted()">
+  <div class="helper-tech">Arraste o marcador para a emoção que mais se identifica</div>
+  <div class="data">
+    <ion-list>
+      @for (dimension of dimensions; track dimension.title) {
+        <ion-item-divider>
+          <ion-label>{{ dimension.title }}</ion-label>
+        </ion-item-divider>
+
+        @for (pair of dimension.pairs; track pair.key) {
+          <ion-item [class.no-validate]="isMissing(pair.key)">
+            <ion-range
+              [min]="0"
+              [max]="6"
+              [value]="3"
+              [snaps]="true"
+              [ticks]="true"
+              [attr.aria-label]="pair.left + ' / ' + pair.right"
+              (ionChange)="onChange(pair.key, $any($event))"
+            >
+              <div slot="start" class="range-label">{{ pair.left }}</div>
+              <div slot="end" class="range-label">{{ pair.right }}</div>
+            </ion-range>
+          </ion-item>
+        }
+      }
+    </ion-list>
+  </div>
+</div>

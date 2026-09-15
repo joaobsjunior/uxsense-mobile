@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/teams" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ 'titleNewTeam' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <ion-list inset="true">
+      <ion-item>
+        <ion-select
+          labelPlacement="stacked"
+          formControlName="group"
+          interface="action-sheet"
+          cancelText="{{ 'labelCancel' | translate }}"
+          (ionChange)="onGroupChange()"
+        >
+          <div slot="label">{{ 'labelGroup' | translate }} <span class="required">*</span></div>
+          @for (item of groups(); track item.id) {
+            <ion-select-option [value]="item">{{ item.name }}</ion-select-option>
+          }
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-select
+          labelPlacement="stacked"
+          formControlName="subgroup"
+          interface="action-sheet"
+          cancelText="{{ 'labelCancel' | translate }}"
+          (ionChange)="onSubgroupChange()"
+        >
+          <div slot="label">{{ 'labelSubgroup' | translate }} <span class="required">*</span></div>
+          @for (item of subgroups(); track item.id) {
+            <ion-select-option [value]="item">{{ item.name }}</ion-select-option>
+          }
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-select
+          labelPlacement="stacked"
+          formControlName="team"
+          interface="action-sheet"
+          cancelText="{{ 'labelCancel' | translate }}"
+          (ionChange)="onTeamChange()"
+        >
+          <div slot="label">{{ 'labelTeam' | translate }} <span class="required">*</span></div>
+          @for (item of teams(); track item.id) {
+            <ion-select-option [value]="item">{{ item.name }}</ion-select-option>
+          }
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    @if (selectedTeam(); as team) {
+      <ion-list inset="true">
+        <ion-item lines="none">
+          <ion-label>
+            <strong>{{ 'labelUnit' | translate }}:</strong> {{ team.unit?.name }}
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    }
+
+    <div class="spacer"></div>
+    <ion-button expand="block" type="submit">{{ 'buttonSignUp' | translate }}</ion-button>
+    <div class="spacer"></div>
+  </form>
+</ion-content>
