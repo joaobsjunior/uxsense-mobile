@@ -1,9 +1,32 @@
-# Specifies intentionally untracked files to ignore when using Git
-# http://git-scm.com/docs/gitignore
+# Dependências
+/node_modules
 
-node_modules/
-platforms/
-plugins/
-resources/
-package-lock.json
+# Saída do build do Angular (é o www consumido pelo Cordova)
+/www
+/dist
+/out-tsc
+/.angular/cache
+
+# Cordova
+/platforms
+/plugins
+/resources
 *.apk
+
+# Logs e caches de ferramentas
+npm-debug.log
+yarn-error.log
+.sass-cache/
+/coverage
+.gradle/
+
+# Editores e sistema operacional
+.idea/
+.history/*
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/tasks.json

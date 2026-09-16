@@ -1,0 +1,52 @@
+<ion-header>
+  <!-- Sem botão de voltar: o app AngularJS escondia a volta nesta tela para
+       o aluno responder a pergunta; a troca de aba continua disponível. -->
+  <ion-toolbar color="primary">
+    <ion-title>{{ 'titleAnswerSend' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  @if (notification(); as scheduler) {
+    <div class="info">
+      <h3 class="question">{{ scheduler.question.question }}</h3>
+      <h5 class="ion-text-center">
+        <strong>
+          {{ scheduler.team.subgroup?.group?.name }} / {{ scheduler.team.subgroup?.name }} /
+          {{ scheduler.team.name }}
+        </strong>
+      </h5>
+    </div>
+
+    @switch (scheduler.technique.id) {
+      @case (techniques.emocards) {
+        <app-emocards (answerChange)="onAnswerChange($event)"></app-emocards>
+      }
+      @case (techniques.affectGrid) {
+        <app-affect-grid (answerChange)="onAnswerChange($event)"></app-affect-grid>
+      }
+      @case (techniques.panas) {
+        <app-panas [submitted]="submitted()" (answerChange)="onAnswerChange($event)"></app-panas>
+      }
+      @case (techniques.attrakdiff) {
+        <app-attrakdiff
+          [submitted]="submitted()"
+          (answerChange)="onAnswerChange($event)"
+        ></app-attrakdiff>
+      }
+      @case (techniques.premo) {
+        <app-premo (answerChange)="onAnswerChange($event)"></app-premo>
+      }
+      @case (techniques.esm) {
+        <app-esm (answerChange)="onAnswerChange($event)"></app-esm>
+      }
+      @case (techniques.sam) {
+        <app-sam [submitted]="submitted()" (answerChange)="onAnswerChange($event)"></app-sam>
+      }
+    }
+
+    <div class="spacer"></div>
+    <ion-button expand="block" (click)="submit()">{{ 'labelAnswer' | translate }}</ion-button>
+    <div class="spacer"></div>
+  }
+</ion-content>

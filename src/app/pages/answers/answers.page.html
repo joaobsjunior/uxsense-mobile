@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ 'titleAnswer' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($any($event))">
+    <ion-refresher-content
+      pullingText="{{ 'msgPullToRefresh' | translate }}..."
+    ></ion-refresher-content>
+  </ion-refresher>
+
+  @if (answers().length) {
+    <ion-list>
+      @for (item of answers(); track item.id) {
+        <ion-item class="answer-item">
+          <div>
+            <h3>
+              <strong>{{ 'labelTeam' | translate }}:</strong> {{ item.scheduler.team.name }}
+            </h3>
+            <h3>
+              <strong>{{ 'labelGroup' | translate }}:</strong>
+              {{ item.scheduler.team.subgroup?.group?.name }}/{{ item.scheduler.team.subgroup?.name }}
+            </h3>
+            <h3>
+              <strong>{{ 'labelQuestion' | translate }}:</strong>
+              {{ item.scheduler.question.question }}
+            </h3>
+            <h3>{{ item.date | date: 'dd/MM/yyyy' }} - {{ item.time }}</h3>
+          </div>
+        </ion-item>
+      }
+    </ion-list>
+  } @else {
+    <h4 class="not-found">{{ 'msgAnswerNotFound' | translate }}</h4>
+  }
+</ion-content>

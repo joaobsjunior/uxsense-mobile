@@ -1,0 +1,18 @@
+<div class="technique esm">
+  <div class="helper-tech">{{ 'helpEsm' | translate }}</div>
+  <div class="data">
+    <div class="ion-justify-content-between" style="display: flex">
+      @for (option of options; track option.key) {
+        <button
+          type="button"
+          class="esm-option"
+          [class.selected]="isSelected(option.key)"
+          [attr.aria-pressed]="isSelected(option.key)"
+          (click)="select(option.key)"
+        >
+          <img [src]="'assets/img/esm/' + option.image + '.svg'" [alt]="option.label" />
+        </button>
+      }
+    </div>
+  </div>
+</div>

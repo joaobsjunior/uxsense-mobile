@@ -1,13 +1,7 @@
 {
   "name": "UXSense",
+  "type": "angular-standalone",
   "integrations": {
     "cordova": {}
-  },
-  "type": "ionic1",
-  "watchPatterns": [
-    "www/**/*",
-    "!www/lib/**/*"
-  ],
-  "pro_id": "12814e57",
-  "id": "12814e57"
+  }
 }

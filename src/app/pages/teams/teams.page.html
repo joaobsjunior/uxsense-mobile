@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ 'titleTeams' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($any($event))">
+    <ion-refresher-content
+      pullingText="{{ 'msgPullToRefresh' | translate }}..."
+    ></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list>
+    @for (item of teams(); track item.id) {
+      <ion-item>
+        <div>
+          <small><strong>{{ 'labelTeam' | translate }}:</strong> {{ item.name }}</small><br />
+          <small><strong>{{ 'labelSubgroup' | translate }}:</strong> {{ item.subgroup?.name }}</small
+          ><br />
+          <small><strong>{{ 'labelUnit' | translate }}:</strong> {{ item.unit?.name }}</small>
+        </div>
+        <ion-button
+          slot="end"
+          fill="clear"
+          color="danger"
+          [attr.aria-label]="'labelDelete' | translate"
+          (click)="remove(item)"
+        >
+          <ion-icon slot="icon-only" name="remove-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
+    }
+  </ion-list>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button [attr.aria-label]="'labelAdd' | translate" (click)="newTeam()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

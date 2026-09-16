@@ -1,0 +1,62 @@
+// Tema Ionic do UXSense. As cores reproduzem a paleta do app original:
+// primary = #036b77 (antigo "positive"), danger = #ef473a (antigo "assertive").
+:root {
+  --ion-color-primary: #036b77;
+  --ion-color-primary-rgb: 3, 107, 119;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #035e69;
+  --ion-color-primary-tint: #1c7a85;
+
+  --ion-color-secondary: #0cb9cf;
+  --ion-color-secondary-rgb: 12, 185, 207;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #0aa3b6;
+  --ion-color-secondary-tint: #24c0d4;
+
+  --ion-color-success: #33cd5f;
+  --ion-color-success-rgb: 51, 205, 95;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #2db454;
+  --ion-color-success-tint: #47d26f;
+
+  --ion-color-warning: #ffc900;
+  --ion-color-warning-rgb: 255, 201, 0;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-contrast-rgb: 0, 0, 0;
+  --ion-color-warning-shade: #e0b100;
+  --ion-color-warning-tint: #ffce1a;
+
+  --ion-color-danger: #ef473a;
+  --ion-color-danger-rgb: 239, 71, 58;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #d23e33;
+  --ion-color-danger-tint: #f1594e;
+
+  --ion-color-medium: #92949c;
+  --ion-color-medium-rgb: 146, 148, 156;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-shade: #808289;
+  --ion-color-medium-tint: #9d9fa6;
+
+  --ion-color-dark: #444444;
+  --ion-color-dark-rgb: 68, 68, 68;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255, 255, 255;
+  --ion-color-dark-shade: #3c3c3c;
+  --ion-color-dark-tint: #575757;
+
+  --ion-color-light: #f8f8f8;
+  --ion-color-light-rgb: 248, 248, 248;
+  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast-rgb: 0, 0, 0;
+  --ion-color-light-shade: #dadada;
+  --ion-color-light-tint: #f9f9f9;
+
+  --ion-background-color: #ffffff;
+  --ion-background-color-rgb: 255, 255, 255;
+}
