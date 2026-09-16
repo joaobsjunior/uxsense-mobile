@@ -186,3 +186,19 @@ constituição. Cada item traz a origem e o tipo de lacuna.
 - [X] T058 Verificar que uma sessão gravada pela versão anterior mantém o aluno autenticado após a atualização, per SC-005 (missing)
 - [X] T059 Verificar que, com o servidor inacessível, o app exibe a indisponibilidade e não emite requisições em laço fechado, per SC-006 (missing)
 - [X] T060 Verificar que a resposta é enviada sem coordenadas quando a geolocalização é negada, per spec: Edge Cases (missing)
+
+---
+
+## Phase 9: Convergence (verificação de paridade)
+
+Lacunas encontradas ao comparar, função a função, o app AngularJS do histórico com o
+código novo, e verificações de fluxo que ainda não tinham sido feitas.
+
+- [X] T061 Implementar a troca de aba por deslize horizontal em `src/app/pages/tabs/tabs.page.ts`, desligada na tela de resposta, per FR-017 (missing)
+- [X] T062 Remover o botão de voltar da tela de resposta em `src/app/pages/answer-send/answer-send.page.html`, per FR-018 (contradicts)
+- [X] T063 Verificar o cadastro ponta a ponta: campos obrigatórios, senhas diferentes, sucesso e dados enviados, per US2 (missing)
+- [X] T064 Verificar a recuperação de senha nas duas respostas do servidor (`sent` verdadeiro e falso), per US2 (missing)
+- [X] T065 Verificar o logout: chamada à API, limpeza da sessão e retorno ao login, per US4 (missing)
+- [X] T066 Verificar o tratamento de sessão expirada (401): aviso, limpeza e retorno ao login, per FR-014 (missing)
+- [X] T067 Verificar o gesto de puxar para atualizar na lista de times, per US3 (missing)
+- [X] T068 Verificar que o indicador de carregamento aparece durante a requisição e some ao fim, per FR-013 (missing)

@@ -2,9 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 import {
-  IonBackButton,
   IonButton,
-  IonButtons,
   IonContent,
   IonHeader,
   IonTitle,
@@ -40,9 +38,7 @@ import { toApiDate } from '../../shared/validation';
 @Component({
   selector: 'app-answer-send',
   imports: [
-    IonBackButton,
     IonButton,
-    IonButtons,
     IonContent,
     IonHeader,
     IonTitle,

@@ -154,6 +154,10 @@ nascimento ou senha; também consegue sair do aplicativo.
 - **FR-009**: O app MUST manter as sete técnicas de avaliação: Emocards, Affect Grid,
   PANAS, AttrakDiff, PrEmo, ESM e SAM.
 - **FR-010**: O app MUST manter a navegação por abas: Home, Times, Respostas e Minha Conta.
+- **FR-017**: O app MUST permitir trocar de aba deslizando o dedo na horizontal, exceto na
+  tela de resposta, onde o gesto concorreria com as escalas das técnicas.
+- **FR-018**: A tela de resposta MUST NOT oferecer botão de voltar: a saída é pela troca de
+  aba, como no app original.
 
 **Robustez**
 
